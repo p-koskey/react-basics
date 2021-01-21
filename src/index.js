@@ -1,36 +1,48 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 //CSS
-import './index.css';
+import './index.css'
 //Variables
-const title = 'Ambitious Girl';
-const author = 'Meena Harris';
+const firstBook = {
+  img:
+    'https://images-na.ssl-images-amazon.com/images/I/61zcFAIwgRL._AC_UL200_SR200,200_.jpg',
+  title: 'Ambitious Girl',
+  author: 'Meena Harris',
+}
+const secondBook = {
+  img:
+    'https://images-na.ssl-images-amazon.com/images/I/81h2gWPTYJL._AC_UL200_SR200,200_.jpg',
+  title: 'Becoming',
+  author: 'Mitchelle Obama',
+}
 
 //Main Component
 function BookList() {
-  return (    
-  <section className='booklist'>
-          <Book/>
-          <Book/>
-          <Book/>
-          <Book/>
-          <Book/>
-          <Book/>
-  </section>
-  ); 
-
+  return (
+    <section className='booklist'>
+      <Book
+        img={firstBook.img}
+        title={firstBook.title}
+        author={firstBook.author}
+      />
+      <Book
+        img={secondBook.img}
+        title={secondBook.title}
+        author={secondBook.author}
+      />
+    </section>
+  )
 }
 
 //Child Component
-const Book = () =>{  
-  
-  return <article className="book">
-   <img src="https://images-na.ssl-images-amazon.com/images/I/61zcFAIwgRL._AC_UL200_SR200,200_.jpg" alt=""/>
-    <h1>{title}</h1>
-    <h4>{author.toUpperCase()}</h4>
-   
-  </article>
+const Book = (props) => {
+  return (
+    <article className='book'>
+      <img src={props.img} alt='' />
+      <h1>{props.title}</h1>
+      <h4>{props.author}</h4>
+    </article>
+  )
 }
 
-
-ReactDOM.render(<BookList />, document.getElementById('root'));
+ReactDOM.render(<BookList />, document.getElementById('root'))
