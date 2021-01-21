@@ -35,12 +35,14 @@ function BookList() {
 }
 
 //Child Component
-const Book = (props) => {
+const Book = ({img, title, author}) => {
+
+  //const {img, title, author} = props ---> props destructuring
   return (
     <article className='book'>
-      <img src={props.img} alt='' />
-      <h1>{props.title}</h1>
-      <h4>{props.author}</h4>
+      <img src={img} alt='' />
+      <h1>{title}</h1>
+      <h4>{author}</h4>
     </article>
   )
 }
